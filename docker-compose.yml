@@ -1,0 +1,21 @@
+version: '3.1'
+services:
+  s3_read_php:
+    image: s3_read_php
+    build: .
+    container_name: s3_read_php
+    tty: true # persist on ports
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/home/project
+    networks:
+      s3_net:
+        ipv4_address: 172.12.0.9
+networks:
+  s3_net:
+    ipam:
+      config:
+        - subnet: 172.12.0.0/16
+          #docker-compose v3+ do not use ip_range
+          ip_range: 192.168.0.1/24

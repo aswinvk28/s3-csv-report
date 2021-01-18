@@ -1,0 +1,13 @@
+{
+    "name": "root/project",
+    "authors": [
+        {
+            "name": "Aswin Vijayakumar",
+            "email": "aswinkvj@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "aws/aws-sdk-php": "3.*"
+    }
+}
