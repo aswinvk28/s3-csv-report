@@ -16,16 +16,14 @@ try {
 	// }
 	$normal_objects = $s3->listObjects([
 		'Bucket' => $config['s3-access']['bucket'],
-		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/normal',
-		'MaxKeys' => 10
+		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/normal'
 	]);
 	// foreach ($normal_objects['Contents']  as $object) {
 	// 	echo $object['Key'] . PHP_EOL;
 	// }
 	$pneumonia_objects = $s3->listObjects([
 		'Bucket' => $config['s3-access']['bucket'],
-		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/pneumonia',
-		'MaxKeys' => 10
+		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/pneumonia'
 	]);
 	// foreach ($pneumonia_objects['Contents']  as $object) {
 	// 	echo $object['Key'] . PHP_EOL;
