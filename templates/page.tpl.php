@@ -21,6 +21,6 @@
             </div>
         </div>
         
-        <script type="text/javascript" src="/assets/style/script.js"></script>
+        <!-- <script type="text/javascript" src="/assets/style/script.js"></script> -->
     </body>
 </html>
