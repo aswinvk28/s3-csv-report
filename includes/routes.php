@@ -18,6 +18,10 @@ $routes = array(
         'variables' => array(
             'page' => array('content' => array(), 'sidebar' => array(), 'message' => '')
         ),
-        'method' => 'GET'
+        'method' => 'GET',
+        'headers' => array(
+            'Content-Type: application/json',
+            'Access-Control-Allow-Origin: *'
+        )
     )
 );

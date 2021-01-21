@@ -18,13 +18,15 @@ try {
 		'Bucket' => $config['s3-access']['bucket'],
 		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/normal'
 	]);
-	// foreach ($normal_objects['Contents']  as $object) {
-	// 	echo $object['Key'] . PHP_EOL;
-	// }
+	// // foreach ($normal_objects['Contents']  as $object) {
+	// // 	echo $object['Key'] . PHP_EOL;
+	// // }
 	$pneumonia_objects = $s3->listObjects([
 		'Bucket' => $config['s3-access']['bucket'],
 		'Prefix' => 'Pneumonia-Classification/AutoMLDataset/pneumonia'
 	]);
+	// $normal_objects = array('Contents' => [["Key"=>'123']]);
+	// $pneumonia_objects = array('Contents' => [["Key"=>'abc']]);
 	// foreach ($pneumonia_objects['Contents']  as $object) {
 	// 	echo $object['Key'] . PHP_EOL;
 	// }

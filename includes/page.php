@@ -14,17 +14,26 @@ class Context extends stdClass
         if(array_key_exists($this->uri, $routes)) {
             $page = call_user_func($routes[$this->uri]['callable'], $this, $routes[$this->uri], $page);
             $this->page_variables['html_content'] .= call_user_func('page_execute_script', $page, $this, $routes[$this->uri]);
+            echo render_template(PAGE_ROOT . "/templates/page.tpl.php", $this->page_variables);
         } elseif(count(array_intersect_key($this->variables, $routes)) > 0 &&
             ($key = array_keys(array_intersect_key($this->variables, $routes))[0])
             && $this->http_method == $routes[$key]['method']) {
+            if(!empty($routes[$key]['headers']) && !headers_sent()) {
+                foreach($routes[$key]['headers'] as $header) {
+                    header($header); // send headers
+                }
+            }
             $page = call_user_func($routes[$key]['callable'], $this, $routes[$key], $page);
-            $this->page_variables['html_content'] .= call_user_func('page_execute_script', $page, $this, $routes[$key]);
+            $this->page_variables['api_content'] = $page['content'];
+            echo $this->page_variables['api_content'];
         } elseif(count(array_intersect_key($this->variables, $routes)) > 0) {
             $key = array_keys(array_intersect_key($this->variables, $routes))[0];
             $page = call_user_func($routes[$key]['callable'], $this, $routes[$key], $page);
             $this->page_variables['html_content'] .= call_user_func('page_execute_script', $page, $this, $routes[$key]);
+            echo render_template(PAGE_ROOT . "/templates/page.tpl.php", $this->page_variables);
+        } else {
+            echo render_template(PAGE_ROOT . "/templates/page.tpl.php", $this->page_variables);
         }
-        echo render_template(PAGE_ROOT . "/templates/page.tpl.php", $this->page_variables);
     }
 }
 
@@ -94,10 +103,10 @@ function page_get_s3_list($context, $route, $page) {
     }
     $output = [];
     foreach ($normal_objects['Contents']  as $object) {
-        $output[] = $object['Key'];
+        $output[] = array("image_url" => $object['Key']);
     }
     foreach ($pneumonia_objects['Contents']  as $object) {
-        $output[] = $object['Key'];
+        $output[] = array("image_url" => $object['Key']);
     }
     $page['section_name'] = "home";
     $page['content'] = json_encode($output);
