@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Journal-AI</title>
+        <link href="build/static/css/main.275ba86d.chunk.css" rel="stylesheet">
     </head>
     <body>
         <div class="clearfix" id="header_fixed">
@@ -21,6 +22,7 @@
             </div>
         </div>
         
-        <!-- <script type="text/javascript" src="/assets/style/script.js"></script> -->
+        <script src="build/static/js/2.ca08ae6d.chunk.js"></script>
+        <script src="build/static/js/main.b924854d.chunk.js"></script>
     </body>
 </html>
