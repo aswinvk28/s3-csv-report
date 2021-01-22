@@ -15,6 +15,10 @@
                 <?php echo $html_content; ?>
             </div>
 
+            <div id="root">
+                
+            </div>
+
             <div id="page_footer">
                 <div class="container">
                     <?php require_once "footer.tpl.php"; ?>
