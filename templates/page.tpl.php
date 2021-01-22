@@ -26,8 +26,8 @@
                 </div>
             </div>
         </div>
-        
+
         <script src="build/static/js/2.ca08ae6d.chunk.js"></script>
-        <script src="build/static/js/main.b924854d.chunk.js"></script>
+        <script src="build/static/js/main.388e9d56.chunk.js"></script>
     </body>
 </html>
